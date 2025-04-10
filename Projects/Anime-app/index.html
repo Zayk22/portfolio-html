@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Discovery | Azeez's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <h1><i class="fas fa-dragon"></i> Zay's Anime Explorer</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search anime...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </header>
+
+        
+        <button id="homeBtn" class="home-btn">Back to projects</button>
+
+        
+        <div class="filters">
+            <select id="genreFilter">
+                <option value="">All Genres</option>
+                <option value="action">Action</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="comedy">Comedy</option>
+            </select>
+            <select id="seasonFilter">
+                <option value="">All Seasons</option>
+                <option value="winter">Winter</option>
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="fall">Fall</option>
+            </select>
+            <select id="typeFilter">
+                <option value="">All Types</option>
+                <option value="tv">TV</option>
+                <option value="movie">Movie</option>
+                <option value="ova">OVA</option>
+                <option value="ona">ONA</option>
+            </select>
+            <select id="yearFilter">
+                <option value="">All Years</option>
+                <script>
+                    const currentYear = new Date().getFullYear();
+                    for (let year = currentYear; year >= 2000; year--) {
+                        document.write(`<option value="${year}">${year}</option>`);
+                    }
+                </script>
+            </select>
+            <select id="ratingFilter">
+                <option value="">All Ratings</option>
+                <option value="g">G - All Ages</option>
+                <option value="pg">PG - Children</option>
+                <option value="pg13">PG-13 - Teens 13+</option>
+                <option value="r17">R - 17+ (Violence & Profanity)</option>
+                <option value="r">R+ - Mild Nudity</option>
+            </select>
+        </div>
+
+       
+        <div class="anime-grid" id="animeGrid"></div>
+
+        
+        <div class="loading" id="loading">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

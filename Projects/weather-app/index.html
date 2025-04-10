@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Weather App | Azeez's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+    <style>
+       
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: #FFD700; 
+            color: #000; 
+            border: 2px solid #FFC000; 
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .back-button:hover {
+            background-color: #FFC000; 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .back-button:active {
+            transform: translateY(0);
+        }
+        
+        
+        .container {
+            position: relative;
+            padding-top: 60px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <a href="../projects.html" class="back-button">
+            ← Back to Projects
+        </a>
+        
+        
+        <h1>Weather <span>Sphere</span></h1>
+        <p id="loadingPrefs" class="loading-preferences">Loading your preferences...</p>
+        
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter city name...">
+            <button id="searchBtn"><i class="wi wi-day-sunny"></i> Search</button>
+        </div>
+
+        <div class="unit-toggle">
+            <button id="celsiusBtn" class="active">°C</button>
+            <button id="fahrenheitBtn">°F</button>
+        </div>
+
+        <div class="weather-card">
+            <div class="weather-icon">
+                <i id="weatherIcon" class="wi wi-day-sunny"></i>
+            </div>
+            <div class="weather-info">
+                <h2 id="cityName">--</h2>
+                <p id="weatherDesc">--</p>
+                <div class="temp">
+                    <span id="temperature">--</span>
+                    <sup id="tempUnit">°C</sup>
+                </div>
+                <div class="details">
+                    <p><i class="wi wi-humidity"></i> Humidity: <span id="humidity">--</span>%</p>
+                    <p><i class="wi wi-strong-wind"></i> Wind: <span id="windSpeed">--</span> km/h</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMsg"></div>
+        
+        
+        <div class="forecast-container" id="forecastContainer">
+            <h3>5-Day Forecast</h3>
+            <div class="forecast-grid" id="forecastGrid"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

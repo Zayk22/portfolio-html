@@ -1,0 +1,442 @@
+
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: #fff;
+    --input-bg: #fff;
+    --button-bg: #4CAF50;
+    --button-hover: #45a049;
+    --general-color: #4361ee;
+    --work-color: #f72585;
+    --personal-color: #4cc9f0;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --border-color: #ddd;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --card-bg: #2d2d2d;
+    --input-bg: #3d3d3d;
+    --button-bg: #555;
+    --button-hover: #666;
+    --shadow: 0 2px 5px rgba(0,0,0,0.3);
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.theme-toggle:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stat span {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+}
+
+.stat small {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+#dueToday {
+    font-weight: bold;
+    color: var(--work-color);
+    animation: pulse 1.5s infinite;
+}
+
+.dark-mode #dueToday {
+    color: #ff7eb9;
+}
+
+
+.task-form {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.input-group > * {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    flex: 1;
+    min-width: 120px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.2s;
+}
+
+#taskInput {
+    min-width: 200px;
+}
+
+.time-input {
+    flex: 0.5 !important;
+    min-width: 100px;
+}
+
+.priority-select {
+    flex: 0.7 !important;
+}
+
+#addTaskBtn {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#addTaskBtn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+#addTaskBtn:active {
+    transform: scale(0.98) translateY(1px);
+}
+
+
+.filter-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 6px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    filter: brightness(0.95);
+}
+
+.filter-btn.active {
+    background-color: var(--button-bg);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+
+#tasks {
+    list-style: none;
+    padding: 0;
+}
+
+#tasks li {
+    padding: 12px;
+    background-color: var(--card-bg);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
+    box-shadow: var(--shadow);
+    cursor: grab;
+}
+
+#tasks li:hover {
+    transform: translateX(5px);
+}
+
+#tasks li.dragging {
+    opacity: 0.5;
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.task-priority {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.priority-high { background-color: #ff4757; }
+.priority-medium { background-color: #ffa502; }
+.priority-low { background-color: #2ed573; }
+
+#tasks li.priority-high {
+    border-left: 3px solid #ff4757;
+}
+#tasks li.priority-medium {
+    border-left: 3px solid #ffa502;
+}
+
+.task-content {
+    flex-grow: 1;
+}
+
+.task-category {
+    font-size: 0.8em;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.general { background-color: var(--general-color); color: white; }
+.work { background-color: var(--work-color); color: white; }
+.personal { background-color: var(--personal-color); color: black; }
+
+.task-due {
+    font-size: 0.8em;
+    color: #666;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.dark-mode .task-due {
+    color: #aaa;
+}
+
+.completed {
+    opacity: 0.8;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.dark-mode .completed {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+}
+
+.task-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.2s;
+}
+
+.task-actions button:hover {
+    transform: scale(1.1);
+}
+
+.task-checkbox:checked {
+    animation: gentlePulse 0.4s ease;
+}
+
+
+.task-text[contenteditable="true"] {
+    background-color: var(--input-bg);
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px dashed var(--border-color);
+    transition: all 0.2s;
+}
+
+.edit-controls {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+    animation: fadeIn 0.3s;
+}
+
+.edit-controls button {
+    padding: 3px 8px;
+    font-size: 0.8em;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-controls button:hover {
+    filter: brightness(1.1);
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.close-modal {
+    float: right;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: transform 0.2s;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+}
+
+.reminder-list {
+    list-style: none;
+    padding: 0;
+}
+
+.reminder-list li {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.reminder-due {
+    color: var(--work-color);
+    font-weight: bold;
+}
+
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    border: 4px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: var(--general-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes gentlePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 8px 15px;
+    background-color: green;
+    color: #000;
+    border: 2px solid green;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-btn:hover {
+    background-color: green;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+
+.container {
+    margin-top: 60px; 
+}

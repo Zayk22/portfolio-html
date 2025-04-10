@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../projects.html" class="back-btn green-btn">← Back to Projects</a>
+    
+    <button class="theme-toggle" id="themeToggle">Toggle Dark</button>
+    
+    <div class="container">
+        <h1>TaskFlow</h1>
+        
+        <div class="stats">
+            <div class="stat">
+                <span id="totalTasks">0</span>
+                <small>Total</small>
+            </div>
+            <div class="stat">
+                <span id="completedTasks">0</span>
+                <small>Completed</small>
+            </div>
+            <div class="stat">
+                <span id="completionRate">0%</span>
+                <small>Rate</small>
+            </div>
+            <div class="stat">
+                <span id="dueToday">0</span>
+                <small>Due Today</small>
+            </div>
+        </div>
+
+        <div class="task-form">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="Task description">
+                <input type="date" id="dueDate">
+                <input type="time" id="taskTime" class="time-input">
+                <select id="taskCategory">
+                    <option value="general">General</option>
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                </select>
+                <select id="taskPriority" class="priority-select">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button id="addTaskBtn">Add</button>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="general">General</button>
+            <button class="filter-btn" data-filter="work">Work</button>
+            <button class="filter-btn" data-filter="personal">Personal</button>
+        </div>
+        
+        <ul id="tasks"></ul>
+    </div>
+
+  
+    <div id="reminderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Upcoming Tasks</h2>
+            <ul id="reminderList" class="reminder-list"></ul>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Azeez's Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="contact-page"> 
+
+    <header>
+        <h1>Azeez's Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/About/about.html">About</a></li>
+                <li><a href="/Projects/projects.html">Projects</a></li>
+                <li><a class="active" href="/Contact/contact.html">Contact</a></li>
+                <li><a href="/Readme/Readme.html">Readme</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <h2>Get In Touch</h2>
+        <p class="fade-in bold-text">Let's collaborate on your next project or just say hello!</p>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <h3><i class="fas fa-envelope"></i> Direct Contact</h3>
+                    <p>Email: <a href="mailto:azeezol547@gmail.com">azeezol547@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+2348135013424">+234 813 501 3424</a></p>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Azeez's Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

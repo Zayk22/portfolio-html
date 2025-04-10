@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Azeez</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+       
+        .projects-hero {
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        
+        .project-card.game-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .game-preview {
+            height: 200px;
+            background: #16213e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Courier New', monospace;
+        }
+        .game-preview-content {
+            text-align: center;
+            padding: 20px;
+        }
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #4cc9f0;
+        }
+        
+     
+        .back-home-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #FFD700;
+            color: #000;
+            border: 2px solid #FFC000;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        .back-home-btn:hover {
+            background-color: #FFC000;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .back-home-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="projects-page"> 
+
+<body>
+
+    <header>
+        <h1>Azeez's Projects</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/About/about.html">About</a></li>
+                <li><a href="/Projects/projects.html">Projects</a></li>
+                <li><a href="/Contact/contact.html">Contact</a></li>
+                <li><a href="/Readme/Readme.html">Readme</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="hero projects-hero">
+        <div class="hero-content">
+            <h2 class="fade-in">My Work</h2>
+            <p class="fade-in bold-text">Take a look at my work at the projects I have done so far.</p>
+            <a href="/index.html" class="back-home-btn">← Back to Home</a>
+        </div>
+    </section>
+
+  
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/Assests/Images/brian-mcgowan-kKyxIwvljBg-unsplash.jpg" alt="Weather App Preview">
+                </div>
+                <div class="project-info">
+                    <h3>Live Weather App</h3>
+                    <p>Real-time weather data with API integration</p>
+                    <div class="project-links">
+                        <a href="./weather-app/index.html" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">View Code</a> 
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/Assests/Images/Solo Leveling Wallpapers – Free High-Quality 4K & HD Backgrounds.jfif" alt="Anime Discovery App">
+                </div>
+                <div class="project-info">
+                    <h3>Anime Discovery</h3>
+                    <p>Browse anime with real-time search and filters</p>
+                    <div class="project-links">
+                        <a href="./Anime-app/index.html" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="project-card game-card">
+                <div class="game-preview">
+                    <div class="game-preview-content">
+                        <div class="game-title">Code Bug Escape</div>
+                        <p>Dodge bugs in this JavaScript canvas game</p>
+                        <div class="tech-tags">
+                            <span>HTML5 Canvas</span>
+                            <span>JavaScript</span>
+                            <span>Game Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Code Bug Escape</h3>
+                    <p>A challenging game where you dodge falling code bugs</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>Canvas API</span>
+                        <span>Game Logic</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="./code-bug-escape/index.html" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/Assests/Images/task.png" alt="TaskFlow App" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>TaskFlow</h3>
+                    <p>Productivity task manager with dark mode and priority sorting.</p>
+                    <div class="project-links">
+                        <a href="./task-manager/index.html" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/Assests/Images/kenny-eliason-KYxXMTpTzek-unsplash.jpg" alt="Coding Quiz">
+                </div>
+                <div class="project-info">
+                    <h3>JavaScript Quiz</h3>
+                    <p>Interactive coding quiz with timer and high scores</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>LocalStorage</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="./coding-quiz/index.html" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Azeez's Portfolio. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

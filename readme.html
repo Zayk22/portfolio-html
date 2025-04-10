@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azeez's Development Portfolio</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #4fc3f7;
+            --dark: #121212;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .badge {
+            background: #e0e0e0;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .features-list {
+            padding-left: 20px;
+        }
+        
+        .screenshot {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.02);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #3da8d8;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+        }
+        
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+       
+        .home-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .home-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+            
+            .close {
+                font-size: 30px;
+                top: 10px;
+                right: 20px;
+            }
+            
+            .home-btn {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Azeez's Development Portfolio</h1>
+        <p>A collection of interactive web applications showcasing various skills</p>
+    </header>
+
+    <section>
+        <h2>Featured Projects</h2>
+        
+        <div class="project-grid">
+           
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Weather-app</h3>
+                </div>
+                <img src="/screenshots/Weather SS.png" alt="WeatherSphere Screenshot" class="screenshot" onclick="openModal(this)">
+                <div class="project-content">
+                    <p>A responsive weather application providing real-time weather data and 5-day forecasts with dynamic theming.</p>
+                    
+                    <div class="tech-badges">
+                        <span class="badge">HTML5</span>
+                        <span class="badge">CSS3</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">OpenWeather API</span>
+                    </div>
+                    
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li>Real-time weather data with detailed metrics</li>
+                        <li>5-day forecast with high/low temperatures</li>
+                        <li>Celsius/Fahrenheit unit conversion</li>
+                        <li>Dynamic theming based on weather conditions</li>
+                        <li>Responsive design for all devices</li>
+                    </ul>
+                    
+                    <a href="/Projects/weather-app/index.html" class="btn">View Project</a>
+                </div>
+            </div>
+            
+           
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>TaskFlow</h3>
+                </div>
+                <img src="/screenshots/Task-manager.png" alt="TaskFlow Screenshot" class="screenshot" onclick="openModal(this)">
+                <div class="project-content">
+                    <p>A productivity application with task management, prioritization, and reminder features.</p>
+                    
+                    <div class="tech-badges">
+                        <span class="badge">HTML5</span>
+                        <span class="badge">CSS3</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">LocalStorage</span>
+                        <span class="badge">SortableJS</span>
+                    </div>
+                    
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li>Drag-and-drop task organization</li>
+                        <li>Priority levels and due date reminders</li>
+                        <li>Dark/light mode toggle</li>
+                        <li>Task analytics and completion tracking</li>
+                        <li>Category filtering and inline editing</li>
+                    </ul>
+                    
+                    <a href="/Projects/task-manager/index.html" class="btn">View Project</a>
+                </div>
+            </div>
+            
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>JavaScript Quiz</h3>
+                </div>
+                <img src="/screenshots/Code quiz.png" alt="JavaScript Quiz Screenshot" class="screenshot" onclick="openModal(this)">
+                <div class="project-content">
+                    <p>An interactive quiz application testing JavaScript knowledge with timed challenges.</p>
+                    
+                    <div class="tech-badges">
+                        <span class="badge">HTML5</span>
+                        <span class="badge">CSS3</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">LocalStorage</span>
+                    </div>
+                    
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li>20 challenging JavaScript questions</li>
+                        <li>60-second timer with 10s penalties</li>
+                        <li>Progress tracking with visual indicators</li>
+                        <li>High score leaderboard</li>
+                        <li>Responsive design</li>
+                    </ul>
+                    
+                    <a href="/Projects/coding-quiz/index.html" class="btn">View Project</a>
+                </div>
+            </div>
+            
+         
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Code Bug Escape</h3>
+                </div>
+                <img src="/screenshots/Code bug escape.png" alt="Code Bug Escape Screenshot" class="screenshot" onclick="openModal(this)">
+                <div class="project-content">
+                    <p>A JavaScript canvas game where players dodge falling bugs while collecting power-ups.</p>
+                    
+                    <div class="tech-badges">
+                        <span class="badge">HTML5 Canvas</span>
+                        <span class="badge">CSS3</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">Game Development</span>
+                    </div>
+                    
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li>Retro aesthetic with pixel-style elements</li>
+                        <li>Coffee power-ups to slow bugs temporarily</li>
+                        <li>Score system and difficulty progression</li>
+                        <li>Responsive controls with keyboard input</li>
+                        <li>Game over screen with restart options</li>
+                    </ul>
+                    
+                    <a href="/Projects/code-bug-escape/index.html" class="btn">View Project</a>
+                </div>
+            </div>
+            
+           
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Zay's Anime Explorer</h3>
+                </div>
+                <img src="/screenshots/Anime-explorer.png" alt="Anime Explorer Screenshot" class="screenshot" onclick="openModal(this)">
+                <div class="project-content">
+                    <p>An anime discovery application using the Jikan API to browse and search anime.</p>
+                    
+                    <div class="tech-badges">
+                        <span class="badge">HTML5</span>
+                        <span class="badge">CSS3</span>
+                        <span class="badge">JavaScript</span>
+                        <span class="badge">Jikan API</span>
+                    </div>
+                    
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li>Search anime by title</li>
+                        <li>Advanced filters (genre, season, type, year, rating)</li>
+                        <li>Top anime list on page load</li>
+                        <li>Responsive grid layout</li>
+                        <li>Star rating visualization</li>
+                    </ul>
+                    
+                    <a href="/Projects/Anime-app/index.html" class="btn">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    
+    <a href="/index.html" class="home-btn">Back to Homepage</a>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="tech-badges" style="justify-content: center; margin: 30px 0;">
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+            <span class="badge">JavaScript (ES6+)</span>
+            <span class="badge">Responsive Design</span>
+            <span class="badge">API Integration</span>
+            <span class="badge">Web Animation</span>
+            <span class="badge">LocalStorage</span>
+            <span class="badge">DOM Manipulation</span>
+            <span class="badge">CSS Grid/Flexbox</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Azeez's Portfolio | All projects are open-source and available for review</p>
+    </footer>
+
+    <script>
+      
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        
+       
+        function openModal(imgElement) {
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+            document.body.style.overflow = "hidden";
+        }
+        
+       
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+       
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+      
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape" && modal.style.display === "block") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
